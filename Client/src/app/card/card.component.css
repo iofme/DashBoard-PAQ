@@ -1,0 +1,113 @@
+.Card {
+  width: 23.0625rem;
+  height: 23.8125rem;
+  background-color: #9EABC8;
+  display: flex;
+  padding: 10px 10px 10px 10px;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.Card-Head {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.card-image-educande {
+  width: 6.1875rem;
+  height: 6.1875rem;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.infoEducandes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
+  color: #fff;
+}
+
+.age,
+.role {
+  margin-top: -12px;
+  font-weight: medium;
+  font-size: 12px;
+  line-height: 22px;
+  color: #fff;
+}
+
+.Card-text {
+  color: #fff;
+  font-weight: medium;
+  font-size: 1rem;
+  line-height: 26px;
+  align-items: left;
+}
+
+.Card-more {
+  width: 10.375rem;
+  height: 2.5rem;
+  text-decoration: none;
+  border-radius: 40px;
+  background-color: #5E6E95;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: medium;
+  margin: 0 auto;
+}
+
+.teste {
+  display: flex;
+  gap: 10px;
+}
+
+.video-card {
+  position: relative;
+  width: 300px;
+  /* Ajuste conforme necessário */
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-card:hover .video {
+  transform: scale(1.05);
+}
+
+.video-card:hover .overlay {
+  opacity: 1;
+}

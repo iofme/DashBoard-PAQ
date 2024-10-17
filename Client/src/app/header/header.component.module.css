@@ -1,0 +1,28 @@
+header{
+    display: flex;
+    width: 100%;
+    height: 4.20875rem;
+    align-items: baseline;
+    gap: 100px;
+    justify-content: space-around;
+    background-color: #5E6E95;
+}
+p{
+    color: #f7f8fd;
+    font-size: 1.375rem;
+    font-weight: bold;
+    padding-top: 23px;
+}
+button{
+    background-color: #Fff;
+    text-transform: uppercase;
+    border: none;
+    float: right;
+    border-radius: 20px;
+    color: #9EABC8;
+    height: 2.375rem;
+    width: 5.625rem;
+}
+div{
+    opacity: 0;
+}
