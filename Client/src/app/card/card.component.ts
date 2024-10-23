@@ -1,20 +1,26 @@
-import { Component, inject, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input, inject, OnInit } from '@angular/core';
 import { CardOpenComponent } from '../card-open/card-open.component';
 import { AppComponent } from '../app.component';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
+import { MuralComponent } from '../mural/mural.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CardOpenComponent, AppComponent, RouterLink],
+  imports: [CardOpenComponent, AppComponent, MuralComponent,RouterLink],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent implements OnInit{
+export class CardComponent implements OnInit {
+
+  @Input() name: string = '';
+  @Input() age: any;
+  @Input() role: string = "";
+  @Input() textabout: string = "";
+
   http = inject(HttpClient);
-  card:any;
+  card: any;
 
   ngOnInit(): void {
     this.http.get("https://localhost:5027/api/Cards").subscribe({
@@ -22,15 +28,23 @@ export class CardComponent implements OnInit{
       error: error => console.log(error),
       complete: () => console.log('Request has completed')
     })
-  }
-  @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
+  } 
+
+  @ViewChild('video', { static: true }) video!: ElementRef<HTMLVideoElement>;
+  isPlaying: boolean = false;
 
   playVideo() {
-    this.videoElement.nativeElement.play();
+    console.log(this.video);
+    this.isPlaying = true;                       // Mostra o vídeo
+    this.video.nativeElement.currentTime = 0;    // Reinicia o vídeo
+    this.video.nativeElement.muted = true;      // Ativa o som
+    this.video.nativeElement.play();             // Reproduz o vídeo
   }
 
   pauseVideo() {
-    this.videoElement.nativeElement.pause();
-    this.videoElement.nativeElement.currentTime = 0; // Reseta o vídeo para o início
-  } 
+    this.isPlaying = false;                      // Volta para a miniatura
+    this.video.nativeElement.pause();            // Pausa o vídeo
+    this.video.nativeElement.muted = true;       // Desativa o som
+  }
+
 }

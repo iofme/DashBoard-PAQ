@@ -1,23 +1,20 @@
-<div class="teste">
-  @for (card of card; track card.id) {
-  <div class="Card">
-    <div class="Card-Head">
-      <div class="video-card" (mouseenter)="playVideo()" (mouseleave)="pauseVideo()">
-        <video #videoElement class="video" muted loop preload="metadata">
-          <source src="../../assets/AC0113_01.mov" type="video/mp4">
-          Seu navegador não suporta o elemento de vídeo.
-        </video>
-        <div class="overlay">Título do Vídeo</div>
-      </div>
-      <div class="infoEducandes">
-        <p class="name">{{card.name}}</p>
-        <p class="role">{{card.role}}</p>
-        <p class="age">{{card.idade}}</p>
-      </div>
-    </div>
-    <p class="Card-text">{{card.textAbout}}</p>
-    <a class="Card-more" routerLink="/cardopen">Mais informações</a>
+ <div class="Card">
+   <div class="Card-Head">
+     <div class="video-card" (mouseenter)="playVideo()" (mouseleave)="pauseVideo()">
+       <video #video preload="metadata" muted [hidden]="!isPlaying">
+         <source src="../../assets/AC0113_01.mov" type="video/mp4">
+         Seu navegador não suporta o vídeo.
+       </video>
+       <img #thumbnail src="../../assets/SW-87.jpg" alt="Miniatura do Vídeo" [hidden]="isPlaying" />
+     </div>
 
-  </div>
-  }
-</div>
+     <div class="infoEducandes">
+       <p class="name">{{name}}</p>
+       <p class="role">{{role}}</p>
+       <p class="age">{{age}}</p>
+     </div>
+   </div>
+   <p class="Card-text">{{textabout}}</p>
+   <a class="Card-more" routerLink="/cardopen">Mais informações</a>
+
+ </div>

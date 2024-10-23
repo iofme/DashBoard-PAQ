@@ -1,0 +1,9 @@
+<app-header></app-header>
+<section>
+    @for (card of users; track card.id) {
+        <app-card [name]="card.name" 
+        [age]="card.idade"
+        [textabout]="card.textAbout" 
+        [role]="card.role"></app-card>
+    }
+</section>
